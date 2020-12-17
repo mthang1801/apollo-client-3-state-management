@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+<h2 align="center">Apollo Client 3 State Management Examples</h2>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">Learn how to use AC3 for local and remote state management</p>
 
-## Available Scripts
+## About
 
-In the project directory, you can run:
+[Apollo Client 3](https://www.apollographql.com/docs/react/v3.0-beta/migrating/apollo-client-3-migration/) is a GraphQL client that allows you to easily query the exact data you need from a GraphQL server. In addition to fetching and mutating data, Apollo analyzes your queries and their results to construct a client-side cache of your data, which is kept up to date as further queries and mutations are run, fetching more results from the server.
 
-### `npm start`
+We have found that it can be challenging for developers coming from another state management library (like [Redux](https://redux.js.org/)) to fully grasp the AC3-way of doing things.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### What we're building
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+This repo contains several versions of the same Todo app, both Apollo Client and Redux examples, to demonstrate best practices on using Apollo Client to build applications using solely **local state** in addition to the real-world **remote state** use case.
 
-### `npm test`
+![](https://user-images.githubusercontent.com/6892666/76266873-4cd96a00-623f-11ea-8367-e0735d63a54f.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Examples
 
-### `npm run build`
+### Apollo Local State Example
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+> Summary: Using Apollo Client 3's **Reactive Variables API** ([docs here](https://www.apollographql.com/docs/react/local-state/local-state-management/), [blog post here](https://www.apollographql.com/blog/local-state-management-with-reactive-variables/)), we can store the entire application state locally (and optionally persist it using local storage).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+[Check out the local state example](https://github.com/apollographql/ac3-state-management-examples/tree/master/apollo-local-state).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Apollo Remote State Example
 
-### `npm run eject`
+> Summary: Hooking Apollo Client up to a remote GraphQL API, the client-side cache is smart enough to automatically update the cache after _most_ mutations successfully complete. For mutations that perform interactions against arrays or have additional client-side side-effects, we can help the cache decide what to do next by writing our update logic in the `useMutation`'s `update` function. This approach uses the `writeQuery` and `readQuery` APIs which are recommended for those starting out with Apollo Client.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+[Check out the remote state example](https://github.com/apollographql/ac3-state-management-examples/tree/master/apollo-remote-state)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Apollo Remote State Advanced Cache APIs Example
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+> Summary: This example is the same as the previous remote state example, except that this time, we're using the new AC3 cache manipulation APIs: `cache.modify` and `cache.evict`. This approach is recommended for users who are comfortable with how cache normalization works in Apollo Client and who want direct control over the cache.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+[Check out the remote state (advanced cache APIs) example](https://github.com/apollographql/ac3-state-management-examples/tree/master/apollo-remote-state-advanced-cache-apis)
 
-## Learn More
+### Apollo Remote State (No Relay) Example
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+> Summary: This example is the same as the previous remote state example, except that it doesn't use a Relay-style GraphQL schema. This is mostly used for presentations to keep code succinct.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[Check out the remote state (no-relay) example](https://github.com/apollographql/ac3-state-management-examples/tree/master/apollo-remote-state-no-relay)
 
-### Code Splitting
+### Redux Local State Example
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+> Summary: The Redux architecture provides us with a well-defined mental model for how to update state in an immutable way. We've provided this example in order to compare how to accomplish the same tasks in AC3 and in Redux.
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[Check out the local state (with Redux) example](https://github.com/apollographql/ac3-state-management-examples/tree/master/redux-local-state)
+ 
