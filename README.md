@@ -4,7 +4,7 @@
 
 ## About
 
-[Apollo Client 3](./picture.png) is a GraphQL client that allows you to easily query the exact data you need from a GraphQL server. In addition to fetching and mutating data, Apollo analyzes your queries and their results to construct a client-side cache of your data, which is kept up to date as further queries and mutations are run, fetching more results from the server.
+[Apollo Client 3](https://www.apollographql.com/docs/react/v3.0-beta/migrating/apollo-client-3-migration/) is a GraphQL client that allows you to easily query the exact data you need from a GraphQL server. In addition to fetching and mutating data, Apollo analyzes your queries and their results to construct a client-side cache of your data, which is kept up to date as further queries and mutations are run, fetching more results from the server.
 
 We have found that it can be challenging for developers coming from another state management library (like [Redux](https://redux.js.org/)) to fully grasp the AC3-way of doing things.
 
@@ -12,7 +12,7 @@ We have found that it can be challenging for developers coming from another stat
 
 This repo contains several versions of the same Todo app, both Apollo Client and Redux examples, to demonstrate best practices on using Apollo Client to build applications using solely **local state** in addition to the real-world **remote state** use case.
 
-![](https://user-images.githubusercontent.com/6892666/76266873-4cd96a00-623f-11ea-8367-e0735d63a54f.png)
+![](./picture.png)
 
 ## Examples
 
